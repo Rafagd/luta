@@ -52,6 +52,7 @@ class Application :
             if frame != last_frame :
                 self.state.update(frame)
                 self.state.draw(frame, self.window)
+                self.window.display()
            
             last_frame = frame
        
