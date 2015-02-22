@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-class PlayerController :
+class KeyboardInput :
 
     def __init__(self, keys) :
-        self.keys     = keys
-        self.repr     = {}
+        self.keys = keys
+        self.repr = {}
 
         for k in keys :
             if (k != "confirm") and (k != "cancel") :

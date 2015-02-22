@@ -11,6 +11,9 @@ class Character :
         self.image  = None
         self.sprite = None
 
+        self.position   = sf.Vector2(0, 0)
+        self.walk_speed = 1
+
         self.state         = ""
         self.current_frame = 0
         self.frame_count   = 0
@@ -37,6 +40,12 @@ class Character :
         self.current_frame = 0
         self.frame_count   = len(self.data[self.state]["frames"])
 
+    def walk_left(self) :
+        self.position.x -= self.walk_speed
+
+    def walk_right(self) :
+        self.position.x += self.walk_speed
+
     def draw(self, frame, window) :
         current_frame = self.data[self.state]["frames"][self.current_frame]
 
@@ -44,6 +53,8 @@ class Character :
             sf.Vector2(current_frame["x"], current_frame["y"]),
             sf.Vector2(current_frame["w"], current_frame["h"])
         )
+
+        self.sprite.texture_rectangle.position += self.position
 
         window.draw(self.sprite)
 
